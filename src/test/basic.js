@@ -11,8 +11,10 @@ describe('Basic', function() {
 	beforeEach(function() {
 		initSpy = sinon.spy();
 		methodSpy = sinon.spy();
-
-		Base = jsObjective.Object.extend({
+		console.log('\n____________\n');
+		console.log(jsObjective);
+		console.log(jsObjective.extend);
+		Base = jsObjective.extend({
 			init:         initSpy,
 			publicMethod: methodSpy
 		}, {
@@ -24,7 +26,7 @@ describe('Basic', function() {
 
 		it('creates objects of the correct type', function() {
 			var base = new Base();
-			assert(base.should.be.instanceOf(jsObjective.Object));
+			assert(base.should.be.instanceOf(jsObjective));
 			assert(base.should.be.instanceOf(Base));
 		});
 
@@ -58,11 +60,11 @@ describe('Basic', function() {
 
 		it('sets super references', function() {
 			var child = new Child();
-			assert(should(Base.__super__).equal(jsObjective.Object.prototype));
+			assert(should(Base.__super__).equal(jsObjective.prototype));
 			assert(should(Child.__super__).equal(Base.prototype));
 			assert(should(child).be.instanceOf(Child));
 			assert(should(child).be.instanceOf(Base));
-			assert(should(child).be.instanceOf(jsObjective.Object));
+			assert(should(child).be.instanceOf(jsObjective));
 		});
 
 		it('calls super method', function() {
