@@ -1,3 +1,11 @@
+/**
+ * Copyright (c)
+ * 
+ * jsObjective
+ *
+ * Author: Leo Selig
+ * License: MIT
+ */
 (function() {
 	/**
 	 * @class Object
